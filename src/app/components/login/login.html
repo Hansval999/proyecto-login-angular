@@ -1,0 +1,18 @@
+<div class="login-container">
+  @if (authService.currentUser(); as usuario) {
+    <div class="card">
+      <img [src]="usuario.photoURL" alt="Foto de perfil" class="avatar" referrerpolicy="no-referrer" />
+      <h2>¡Hola, {{ usuario.displayName }}!</h2>
+      <p class="email">{{ usuario.email }}</p>
+      <button (click)="cerrarSesion()" class="btn-logout">Cerrar Sesión</button>
+    </div>
+  } @else {
+    <div class="card">
+      <h2>Bienvenido</h2>
+      <p>Inicia sesión con tu cuenta de Google para continuar</p>
+      <button (click)="iniciarSesion()" class="btn-google">
+        Iniciar sesión con Google
+      </button>
+    </div>
+  }
+</div>
